@@ -1,24 +1,25 @@
-float bullet_x_pos = 100;
-int bulletSpeed = 1;
+int bullet_x_pos = 100;
+int bullet_y_pos = 75;
+int bullet_width = 25;
+int bullet_height = 25;
+int bullet_nose_width = bullet_width / 2;
 void setup(){
-size(640,360);
+  size(640,360);
+  rectMode(CENTER);
 
 }
 
 void draw(){
   background(0);
-  fill(211,211,211);
-  rect(80, 80, 55, 55, 3, 6, 12, 18);
-  rect(80, 120, 55, 55, 3, 6, 12, 18);
-  rect(80, 160, 55, 55, 3, 6, 12, 18);
-  rect(120, 80, 55, 55);
-  rect(160, 80, 55, 55);
-rectMode(CENTER);
-fill(238,255,0);
-triangle(100,25,50,75,0,0);
-fill(242,255,0);
-keyPressed()
-  keyReleased();
-noStroke();
-
+  fill(241,255,0);
+  noStroke();
+  rect(bullet_x_pos,bullet_y_pos,bullet_width,bullet_height);
+  triangle(bullet_x_pos + bullet_width / 2,
+           bullet_y_pos + bullet_height / 2,
+           bullet_x_pos + bullet_width / 2,
+           bullet_y_pos - bullet_height / 2,
+           bullet_x_pos + bullet_width / 2 + bullet_nose_width,
+           bullet_y_pos
+  );
+  bullet_x_pos += 10;
 }
